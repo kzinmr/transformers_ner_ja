@@ -330,7 +330,7 @@ class TokenClassificationDataset(Dataset):
         self.features: List[InputFeatures] = []
         self.examples: List[TokenClassificationExample] = []
         texts: StrList = [ex.content for ex in examples]
-        annotations: List[List[SpanAnnotation]] = [ex.annotations for ex in data]
+        annotations: List[List[SpanAnnotation]] = [ex.annotations for ex in examples]
 
         if window_stride is None:
             self.window_stride = tokens_per_batch
