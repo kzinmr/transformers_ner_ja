@@ -1,0 +1,9 @@
+mlflow==1.12.1
+scikit-learn==0.23.2
+pytorch_lightning==1.1.0
+transformers==4.0.1
+seqeval
+requests
+fugashi
+ipadic
+gorilla  # for mlflow
