@@ -477,7 +477,7 @@ class SequenceClassificationModule(pl.LightningModule):
         output = self.shared_step(test_batch)
         _, y_hat = torch.max(output.logits, dim=1)  # values, indices
         test_acc = accuracy_score(y_hat.cpu(), test_batch.label_ids.detach().cpu())
-        return {"test_acc": torch.Tensor(test_acc)}
+        return {"test_acc": torch.Tensor([test_acc])}
 
     def test_epoch_end(self, outputs: List[Dict[str, torch.Tensor]]):
         avg_test_acc = torch.stack([x["test_acc"] for x in outputs]).mean()
