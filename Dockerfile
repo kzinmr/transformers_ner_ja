@@ -4,6 +4,7 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
 ENV APP_ROOT /app
 ENV WORK_DIR /app/workspace
+ENV MLFLOW_TRACKING_URI file:/app/workspace/mlruns
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -47,6 +48,6 @@ RUN pip install -r requirements.txt
 COPY *.py ./
 COPY *.sh ./
 # COPY config.yaml .
-RUN mkdir -p $WORK_DIR
+RUN mkdir -p $WORK_DIR/mlruns
 
 CMD ["bash", "./run_ner.sh"]

@@ -1,0 +1,24 @@
+version: "3"
+services:
+  pl:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./workspace:/app/workspace
+    working_dir: /app
+    command: bash /app/run_ner.sh
+    restart: "no"
+    # runtime: nvidia  # can be used after v1.28.0
+
+  mlflow:
+    build:
+      context: .
+      dockerfile: Dockerfile_mlflow
+    volumes:
+      - ./workspace:/app/workspace
+    working_dir: /app/workspace
+    ports:
+      - "5000:5000"
+    command: mlflow server --backend-store-uri file:/app/workspace/mlruns --host 0.0.0.0 --port 5000
+    restart: always

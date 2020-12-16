@@ -1,0 +1,7 @@
+FROM python:3.8
+
+RUN apt-get update
+RUN apt-get -y install sqlite3 libsqlite3-dev
+
+RUN pip install --upgrade pip && \
+    pip install mlflow
