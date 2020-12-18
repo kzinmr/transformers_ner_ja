@@ -3,7 +3,7 @@ Japanese NER with Transformers + PyTorch-Lightning + MLflow Tracking
 
 ## GPU Training
 - build: `docker build -t trf-ner-ja-train .`
-- run: `docker run --rm --gpus all  -v /where/to/workspace/outputs:/app/workspace trf-ner-ja-train`
+- run: `docker run --rm --gpus all  -v /where/to/workspace:/app/workspace trf-ner-ja-train`
   - NOTE: set `export GPUS=1` in run_ner.sh
 
 ## MLflow Tracking
