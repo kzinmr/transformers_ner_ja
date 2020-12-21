@@ -87,7 +87,7 @@ class InputFeatures:
     label_ids: IntList
 
 
-def download_dataset(data_dir: str):
+def download_dataset(data_dir: Union[str, Path]):
     def _download_data(url, file_path):
         response = requests.get(url)
         if response.ok:
