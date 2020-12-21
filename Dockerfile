@@ -47,6 +47,7 @@ RUN pip install -r requirements.txt
 #     pip install hydra-core --upgrade
 COPY *.py ./
 COPY *.sh ./
+COPY workspace/data/* /app/workspace
 # COPY config.yaml .
 RUN mkdir -p $WORK_DIR/mlruns
 
