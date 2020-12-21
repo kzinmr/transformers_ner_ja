@@ -463,10 +463,11 @@ class TokenClassificationDataModule(pl.LightningDataModule):
             tokenize_chinese_chars=False,
             strip_accents=False,
         )
+        data_dir = Path(self.data_dir)
         if (
-            not Path(self.data_dir, f"{Split.train.value}.txt").exists
-            or not Path(self.data_dir, f"{Split.dev.value}.txt").exists
-            or not Path(self.data_dir, f"{Split.test.value}.txt").exists
+            not (data_dir / f"{Split.train.value}.txt").exists
+            or not (data_dir / f"{Split.dev.value}.txt").exists
+            or not (data_dir / f"{Split.test.value}.txt").exists
         ):
             download_dataset(self.data_dir)
         self.train_examples = read_examples_from_file(self.data_dir, Split.train)
